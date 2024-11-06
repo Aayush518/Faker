@@ -1,0 +1,468 @@
+/* General reset */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+.Nav {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Vertically center the menu items */
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  flex-wrap: wrap; /* Allow wrapping of items */
+}
+
+.Nav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 17px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Nav a:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+.Nav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+/* Search Box Styling */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push the search box to the far right */
+}
+
+.search-box {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  width: 200px; /* Adjust width */
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-btn {
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #45a049;
+}
+
+/* Hero Section with Gradient and Parallax */
+.hero {
+  position: relative; /* Changed from absolute */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(to top, #04aa6d, #019e5b);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  min-height: 60vh; /* Set minimum height */
+  width: 100%;
+  overflow: hidden;
+  z-index: 1; /* Ensure proper stacking */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://via.placeholder.com/1600x800");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: -1;
+  animation: parallax 15s linear infinite;
+}
+
+@keyframes parallax {
+  0% {
+    background-position: center 0;
+  }
+  100% {
+    background-position: center 100%;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Ensure content stays on top */
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.hero-description {
+  font-size: 20px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  animation: slideInFromRight 1s ease-out forwards;
+}
+
+.cta-button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: bounce 1s infinite;
+}
+
+.cta-button:hover {
+  background-color: #45a049;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Main content area */
+.Content {
+  position: relative;
+  width: 100%;
+  background-color: #f4f4f4;
+  z-index: 1;
+  margin-top: -1px; /* Prevent any tiny gaps */
+}
+
+/* What is AI Faker Section */
+#home {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+#home h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+#home h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #04aa6d;
+  border-radius: 2px;
+}
+
+#home p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Services Section */
+#services {
+  background-color: #ffffff;
+  padding: 80px 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+#services h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+#services p {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#services ul {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0;
+}
+
+#services li {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#services li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#services li strong {
+  color: #04aa6d;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* About Section */
+#about {
+  background: linear-gradient(45deg, #04aa6d 0%, #045d3c 100%);
+  color: white;
+  padding: 80px 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Section */
+#contact {
+  background: #ffffff;
+  padding: 60px 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+#contact ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+#contact li {
+  background: #f8f9fa;
+  padding: 15px 30px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+#contact li:hover {
+  background: #04aa6d;
+}
+
+#contact li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#contact li:hover a {
+  color: white;
+}
+
+/* Footer */
+.Footer {
+  background-color: #333;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: center; /* Center the footer content horizontally */
+  align-items: center; /* Center the footer content vertically */
+  padding: 20px 0;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* Push the footer to the bottom if content is small */
+  width: 100%;
+}
+
+.Footer-info {
+  font-size: 14px;
+  text-align: center; /* Ensure text is centered */
+  padding: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Nav {
+    flex-wrap: nowrap; /* Allow navbar items to wrap onto the next line */
+    justify-content: left; /* Distribute items evenly */
+  }
+
+  .Nav a {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* Search Box Adjustments */
+  .search-container {
+    margin-left: 0; /* No need for margin-left: auto on small screens */
+    width: 100%; /* Ensure it takes full width */
+    margin: auto;
+  }
+
+  /* Adjust footer text for smaller screens */
+  .Footer-info {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .hero {
+    min-height: 50vh; /* Slightly shorter on mobile */
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+  }
+  #services {
+    padding: 40px 20px;
+  }
+
+  #services ul {
+    grid-template-columns: 1fr;
+  }
+
+  #about,
+  #contact {
+    padding: 40px 20px;
+    margin: 20px;
+  }
+
+  #contact ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #contact li {
+    width: 100%;
+    max-width: 250px;
+  }
+}
